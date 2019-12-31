@@ -1,0 +1,637 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav class="navbar navbar-dark bg-dark" style="width: 100%;">
+      <a class="navbar-brand" href="/home">Welcome {{userInfo.first_name}} {{userInfo.last_name}} (Admin)</a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="/home">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/manage_users">Manage Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: red;" href="/logout">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">NULL</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div class="card" style="margin-top: 100px; margin-bottom: 100px;">
+        <div class="card-header">
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="manage-tab" data-toggle="tab" href="#manage" role="tab" aria-controls="manage" aria-selected="true">Manage Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="create-tab" data-toggle="tab" href="#create" role="tab" aria-controls="create" aria-selected="false">Create User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">NULL</a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="myTabContent">
+
+
+            <!--CREATE USER-->
+            <div class="tab-pane fade" id="create" role="tabpanel" aria-labelledby="create-tab">
+              <form action="/sa_create_user" method="POST"> <!--class="form-inline text-left panel-body"-->
+                <div class="form-group">
+                  <select class="form-control" id="kind"  name="kind">
+                    <option value="nullspace" selected="true" disabled>Kind (Permissions)</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                    <option value="nullspace" disabled>Safety Space</option>
+                    <option value="superadmin">Super Admin</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="gender"  name="gender">
+                      <option value="nullspace" selected="true" disabled>Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="city" name="city" value="City">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="state" name="state">
+                    <option value="nullspace" selected="true" disabled>State</option>
+                    <option value="alabama">Alabama</option>
+                    <option value="alaska">Alaska</option>
+                    <option value="arizona">Arizona</option>
+                    <option value="arkansas">Arkansas</option>
+                    <option value="california">California</option>
+                    <option value="colorado">Colorado</option>
+                    <option value="connecticut">Connecticut</option>
+                    <option value="delaware">Delaware</option>
+                    <option value="florida">Florida</option>
+                    <option value="georgia">Georgia</option>
+                    <option value="hawaii">Hawaii</option>
+                    <option value="idaho">Idaho</option>
+                    <option value="illinois">Illinois</option>
+                    <option value="indiana">Indiana</option>
+                    <option value="iowa">Iowa</option>
+                    <option value="kansas">Kansas</option>
+                    <option value="kentucky">Kentucky</option>
+                    <option value="louisiana">Louisiana</option>
+                    <option value="maine">Maine</option>
+                    <option value="maryland">Maryland</option>
+                    <option value="massachusetts">Massachusetts</option>
+                    <option value="michigan">Michigan</option>
+                    <option value="minnesota">Minnesota</option>
+                    <option value="mississippi">Mississippi</option>
+                    <option value="missouri">Missouri</option>
+                    <option value="montana">Montana</option>
+                    <option value="nebraska">Nebraska</option>
+                    <option value="nevada">Nevada</option>
+                    <option value="new hampshire">New Hampshire</option>
+                    <option value="new jersey">New Jersey</option>
+                    <option value="new mexico">New Mexico</option>
+                    <option value="new york">New York</option>
+                    <option value="north carolina">North Carolina</option>
+                    <option value="north dakota">North Dakota</option>
+                    <option value="ohio">Ohio</option>
+                    <option value="oklahoma">Oklahoma</option>
+                    <option value="oregon">Oregon</option>
+                    <option value="pennsylvania">Pennsylvania</option>
+                    <option value="rhode island">Rhode Island</option>
+                    <option value="south carolina">South Carolina</option>
+                    <option value="south dakota">South Dakota</option>
+                    <option value="tennessee">Tennessee</option>
+                    <option value="texas">Texas</option>
+                    <option value="utah">Utah</option>
+                    <option value="vermont">Vermont</option>
+                    <option value="virginia">Virginia</option>
+                    <option value="washington">Washington</option>
+                    <option value="west virginia">West Virginia</option>
+                    <option value="wisconsin">Wisconsin</option>
+                    <option value="wyoming">Wyoming</option>
+                    <option value="other">Other (Int'l)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" id="zip" name="zip" placeholder="Zip">
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control" id="phone_number" name="phone_number" placeholder="Phone Number">
+                </div>
+                <button type="submit" class="btn btn-success">Create</button>
+              </form>
+            </div>
+
+            <!--MANAGE USERS-->
+            <div class="tab-pane fade show active" id="manage" role="tabpanel" aria-labelledby="manage-tab">
+
+
+              <div class="accordion" id="accordionExample">
+
+                <h1 class="text-center">Super Admin</h1>
+                {{#each superadmin}}
+                <div class="card">
+                  <div class="card-header" id="{{this.id}}">
+                    <h2 class="mb-0">
+                      <button style="color:#000;" class="btn btn-link" type="button" data-toggle="collapse" data-target="#user{{this.id}}" aria-expanded="false" aria-controls="user{{this.id}}">
+                        {{this.Contact.first_name}} {{this.Contact.last_name}}, {{this.email}}
+                      </button>
+                    </h2>
+                  </div>
+
+                  <div id="user{{this.id}}" class="collapse" aria-labelledby="{{this.id}}" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <form action="/sa_update_user/{{this.id}}?_method=PUT" method="POST">
+                        <ul class="list-group">
+                          <li class="list-group-item list-group-item-primary">
+                              <div class="form-group">
+                                <label for="email{{this.id}}">Email</label>
+                                <input type="email" class="form-control" name="email" id="email{{this.id}}" value="{{this.email}}">
+                              </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="first{{this.id}}">First Name</label>
+                                <input type="text" class="form-control" name="first_name" id="first{{this.id}}" value="{{this.Contact.first_name}}">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="last{{this.id}}">Last Name</label>
+                                <input type="text" class="form-control" name="last_name" id="last{{this.id}}" value="{{this.Contact.last_name}}">
+                              </div>
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="kind{{this.id}}">Kind (permissions)</label>
+                                <select class="form-control" id="kind{{this.id}}"  name="kind">
+                                  <option value="nullspace" selected="true" disabled>{{this.kind}}</option>
+                                  <option value="superadmin">Super Admin</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="gender{{this.id}}">Gender</label>
+                                <select class="form-control" id="gender{{this.id}}" name="gender">
+                                  <option value="nullspace" selected="true" disabled>{{this.Contact.gender}}</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-group">
+                              <label for="phone{{this.id}}">Phone</label>
+                              <input type="number" class="form-control" id="phone{{this.id}}" name="phone_number" value="{{this.Contact.phone_number}}">
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="city{{this.id}}">City</label>
+                                <input type="text" class="form-control" id="city{{this.id}}" name="city" value="{{this.Contact.city}}">
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label for="state{{this.id}}">State</label>
+                                <select class="form-control" id="state{{this.id}}" name="state">
+                                  <option value="nullspace" selected="true" disabled>{{this.Contact.state}}</option>
+                                  <option value="alabama">Alabama</option>
+                                  <option value="alaska">Alaska</option>
+                                  <option value="arizona">Arizona</option>
+                                  <option value="arkansas">Arkansas</option>
+                                  <option value="california">California</option>
+                                  <option value="colorado">Colorado</option>
+                                  <option value="connecticut">Connecticut</option>
+                                  <option value="delaware">Delaware</option>
+                                  <option value="florida">Florida</option>
+                                  <option value="georgia">Georgia</option>
+                                  <option value="hawaii">Hawaii</option>
+                                  <option value="idaho">Idaho</option>
+                                  <option value="illinois">Illinois</option>
+                                  <option value="indiana">Indiana</option>
+                                  <option value="iowa">Iowa</option>
+                                  <option value="kansas">Kansas</option>
+                                  <option value="kentucky">Kentucky</option>
+                                  <option value="louisiana">Louisiana</option>
+                                  <option value="maine">Maine</option>
+                                  <option value="maryland">Maryland</option>
+                                  <option value="massachusetts">Massachusetts</option>
+                                  <option value="michigan">Michigan</option>
+                                  <option value="minnesota">Minnesota</option>
+                                  <option value="mississippi">Mississippi</option>
+                                  <option value="missouri">Missouri</option>
+                                  <option value="montana">Montana</option>
+                                  <option value="nebraska">Nebraska</option>
+                                  <option value="nevada">Nevada</option>
+                                  <option value="new hampshire">New Hampshire</option>
+                                  <option value="new jersey">New Jersey</option>
+                                  <option value="new mexico">New Mexico</option>
+                                  <option value="new york">New York</option>
+                                  <option value="north carolina">North Carolina</option>
+                                  <option value="north dakota">North Dakota</option>
+                                  <option value="ohio">Ohio</option>
+                                  <option value="oklahoma">Oklahoma</option>
+                                  <option value="oregon">Oregon</option>
+                                  <option value="pennsylvania">Pennsylvania</option>
+                                  <option value="rhode island">Rhode Island</option>
+                                  <option value="south carolina">South Carolina</option>
+                                  <option value="south dakota">South Dakota</option>
+                                  <option value="tennessee">Tennessee</option>
+                                  <option value="texas">Texas</option>
+                                  <option value="utah">Utah</option>
+                                  <option value="vermont">Vermont</option>
+                                  <option value="virginia">Virginia</option>
+                                  <option value="washington">Washington</option>
+                                  <option value="west virginia">West Virginia</option>
+                                  <option value="wisconsin">Wisconsin</option>
+                                  <option value="wyoming">Wyoming</option>
+                                  <option value="other">Other (Int'l)</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label for="zip{{this.id}}">Zip</label>
+                                <input type="number" class="form-control" name="zip" id="zip{{this.id}}" value="{{this.Contact.zip}}">
+                              </div>
+                            </div>
+                          </li>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        </ul>
+                      </form>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#pass{{this.id}}" aria-expanded="false" aria-controls="pass{{this.id}}">
+                          Manual Password Update
+                        </button>
+                        <form action="/delete_user/{{this.id}}?_method=DELETE" method="POST" class="text-right" style="display: inline; float: right;">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      <div class="collapse" id="pass{{this.id}}">
+                        <form action="/update_pass/{{this.id}}?_method=PUT" method="POST">
+                          <div class="card card-body">
+                            <div class="form-group">
+                              <label for="password{{this.id}}">Password for {{this.email}}</label>
+                              <input type="password" class="form-control" name="password" id="password{{this.id}}" placeholder="Enter new password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+
+                <h1 class="text-center">Admin</h1>
+                {{#each admin}}
+                <div class="card">
+                  <div class="card-header" id="{{this.id}}">
+                    <h2 class="mb-0">
+                      <button style="color:#000;" class="btn btn-link" type="button" data-toggle="collapse" data-target="#user{{this.id}}" aria-expanded="false" aria-controls="user{{this.id}}">
+                        {{this.Contact.first_name}} {{this.Contact.last_name}}, {{this.email}}
+                      </button>
+                    </h2>
+                  </div>
+
+                  <div id="user{{this.id}}" class="collapse" aria-labelledby="{{this.id}}" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <form action="/sa_update_user/{{this.id}}?_method=PUT" method="POST">
+                        <ul class="list-group">
+                          <li class="list-group-item list-group-item-primary">
+                              <div class="form-group">
+                                <label for="email{{this.id}}">Email</label>
+                                <input type="email" class="form-control" name="email" id="email{{this.id}}" value="{{this.email}}">
+                              </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="first{{this.id}}">First Name</label>
+                                <input type="text" class="form-control" name="first_name" id="first{{this.id}}" value="{{this.Contact.first_name}}">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="last{{this.id}}">Last Name</label>
+                                <input type="text" class="form-control" name="last_name" id="last{{this.id}}" value="{{this.Contact.last_name}}">
+                              </div>
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="kind{{this.id}}">Kind (permissions)</label>
+                                <select class="form-control" id="kind{{this.id}}"  name="kind">
+                                  <option value="nullspace" selected="true" disabled>{{this.kind}}</option>
+                                  <option value="admin">Admin</option>
+                                  <option value="user">User</option>
+                                  <option value="banned">Ban (revoke access)</option>
+                                  <option value="user">Null Space</option>
+                                  <option value="user">Null Space</option>
+                                  <option value="superadmin">Super Admin</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="gender{{this.id}}">Gender</label>
+                                <select class="form-control" id="gender{{this.id}}" name="gender">
+                                  <option value="nullspace" selected="true" disabled>{{this.Contact.gender}}</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-group">
+                              <label for="phone{{this.id}}">Phone</label>
+                              <input type="number" class="form-control" id="phone{{this.id}}" name="phone_number" value="{{this.Contact.phone_number}}">
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="city{{this.id}}">City</label>
+                                <input type="text" class="form-control" id="city{{this.id}}" name="city" value="{{this.Contact.city}}">
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label for="state{{this.id}}">State</label>
+                                <select class="form-control" id="state{{this.id}}" name="state">
+                                  <option value="nullspace" selected="true" disabled>{{this.Contact.state}}</option>
+                                  <option value="alabama">Alabama</option>
+                                  <option value="alaska">Alaska</option>
+                                  <option value="arizona">Arizona</option>
+                                  <option value="arkansas">Arkansas</option>
+                                  <option value="california">California</option>
+                                  <option value="colorado">Colorado</option>
+                                  <option value="connecticut">Connecticut</option>
+                                  <option value="delaware">Delaware</option>
+                                  <option value="florida">Florida</option>
+                                  <option value="georgia">Georgia</option>
+                                  <option value="hawaii">Hawaii</option>
+                                  <option value="idaho">Idaho</option>
+                                  <option value="illinois">Illinois</option>
+                                  <option value="indiana">Indiana</option>
+                                  <option value="iowa">Iowa</option>
+                                  <option value="kansas">Kansas</option>
+                                  <option value="kentucky">Kentucky</option>
+                                  <option value="louisiana">Louisiana</option>
+                                  <option value="maine">Maine</option>
+                                  <option value="maryland">Maryland</option>
+                                  <option value="massachusetts">Massachusetts</option>
+                                  <option value="michigan">Michigan</option>
+                                  <option value="minnesota">Minnesota</option>
+                                  <option value="mississippi">Mississippi</option>
+                                  <option value="missouri">Missouri</option>
+                                  <option value="montana">Montana</option>
+                                  <option value="nebraska">Nebraska</option>
+                                  <option value="nevada">Nevada</option>
+                                  <option value="new hampshire">New Hampshire</option>
+                                  <option value="new jersey">New Jersey</option>
+                                  <option value="new mexico">New Mexico</option>
+                                  <option value="new york">New York</option>
+                                  <option value="north carolina">North Carolina</option>
+                                  <option value="north dakota">North Dakota</option>
+                                  <option value="ohio">Ohio</option>
+                                  <option value="oklahoma">Oklahoma</option>
+                                  <option value="oregon">Oregon</option>
+                                  <option value="pennsylvania">Pennsylvania</option>
+                                  <option value="rhode island">Rhode Island</option>
+                                  <option value="south carolina">South Carolina</option>
+                                  <option value="south dakota">South Dakota</option>
+                                  <option value="tennessee">Tennessee</option>
+                                  <option value="texas">Texas</option>
+                                  <option value="utah">Utah</option>
+                                  <option value="vermont">Vermont</option>
+                                  <option value="virginia">Virginia</option>
+                                  <option value="washington">Washington</option>
+                                  <option value="west virginia">West Virginia</option>
+                                  <option value="wisconsin">Wisconsin</option>
+                                  <option value="wyoming">Wyoming</option>
+                                  <option value="other">Other (Int'l)</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label for="zip{{this.id}}">Zip</label>
+                                <input type="number" class="form-control" name="zip" id="zip{{this.id}}" value="{{this.Contact.zip}}">
+                              </div>
+                            </div>
+                          </li>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        </ul>
+                      </form>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#pass{{this.id}}" aria-expanded="false" aria-controls="pass{{this.id}}">
+                          Manual Password Update
+                        </button>
+                        <form action="/delete_user/{{this.id}}?_method=DELETE" method="POST" class="text-right" style="display: inline; float: right;">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      <div class="collapse" id="pass{{this.id}}">
+                        <form action="/update_pass/{{this.id}}?_method=PUT" method="POST">
+                          <div class="card card-body">
+                            <div class="form-group">
+                              <label for="password{{this.id}}">Password for {{this.email}}</label>
+                              <input type="password" class="form-control" name="password" id="password{{this.id}}" placeholder="Enter new password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+
+                <h1 class="text-center">User</h1>
+                {{#each user}}
+                <div class="card">
+                  <div class="card-header" id="{{this.id}}">
+                    <h2 class="mb-0">
+                      <button style="color:#000;" class="btn btn-link" type="button" data-toggle="collapse" data-target="#user{{this.id}}" aria-expanded="false" aria-controls="user{{this.id}}">
+                        {{this.Contact.first_name}} {{this.Contact.last_name}}, {{this.email}}
+                      </button>
+                    </h2>
+                  </div>
+
+                  <div id="user{{this.id}}" class="collapse" aria-labelledby="{{this.id}}" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <form action="/sa_update_user/{{this.id}}?_method=PUT" method="POST">
+                        <ul class="list-group">
+                          <li class="list-group-item list-group-item-primary">
+                              <div class="form-group">
+                                <label for="email{{this.id}}">Email</label>
+                                <input type="email" class="form-control" name="email" id="email{{this.id}}" value="{{this.email}}">
+                              </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="first{{this.id}}">First Name</label>
+                                <input type="text" class="form-control" name="first_name" id="first{{this.id}}" value="{{this.Contact.first_name}}">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="last{{this.id}}">Last Name</label>
+                                <input type="text" class="form-control" name="last_name" id="last{{this.id}}" value="{{this.Contact.last_name}}">
+                              </div>
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="kind{{this.id}}">Kind (permissions)</label>
+                                <select class="form-control" id="kind{{this.id}}"  name="kind">
+                                  <option value="nullspace" selected="true" disabled>{{this.kind}}</option>
+                                  <option value="admin">Admin</option>
+                                  <option value="user">User</option>
+                                  <option value="banned">Ban (revoke access)</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="gender{{this.id}}">Gender</label>
+                                <select class="form-control" id="gender{{this.id}}" name="gender">
+                                  <option value="nullspace" selected="true" disabled>{{this.Contact.gender}}</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-group">
+                              <label for="phone{{this.id}}">Phone</label>
+                              <input type="number" class="form-control" id="phone{{this.id}}" name="phone_number" value="{{this.Contact.phone_number}}">
+                            </div>
+                          </li>
+                          <li class="list-group-item list-group-item-primary">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="city{{this.id}}">City</label>
+                                <input type="text" class="form-control" id="city{{this.id}}" name="city" value="{{this.Contact.city}}">
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label for="state{{this.id}}">State</label>
+                                <select class="form-control" id="state{{this.id}}" name="state">
+                                  <option value="nullspace" selected="true" disabled>{{this.Contact.state}}</option>
+                                  <option value="alabama">Alabama</option>
+                                  <option value="alaska">Alaska</option>
+                                  <option value="arizona">Arizona</option>
+                                  <option value="arkansas">Arkansas</option>
+                                  <option value="california">California</option>
+                                  <option value="colorado">Colorado</option>
+                                  <option value="connecticut">Connecticut</option>
+                                  <option value="delaware">Delaware</option>
+                                  <option value="florida">Florida</option>
+                                  <option value="georgia">Georgia</option>
+                                  <option value="hawaii">Hawaii</option>
+                                  <option value="idaho">Idaho</option>
+                                  <option value="illinois">Illinois</option>
+                                  <option value="indiana">Indiana</option>
+                                  <option value="iowa">Iowa</option>
+                                  <option value="kansas">Kansas</option>
+                                  <option value="kentucky">Kentucky</option>
+                                  <option value="louisiana">Louisiana</option>
+                                  <option value="maine">Maine</option>
+                                  <option value="maryland">Maryland</option>
+                                  <option value="massachusetts">Massachusetts</option>
+                                  <option value="michigan">Michigan</option>
+                                  <option value="minnesota">Minnesota</option>
+                                  <option value="mississippi">Mississippi</option>
+                                  <option value="missouri">Missouri</option>
+                                  <option value="montana">Montana</option>
+                                  <option value="nebraska">Nebraska</option>
+                                  <option value="nevada">Nevada</option>
+                                  <option value="new hampshire">New Hampshire</option>
+                                  <option value="new jersey">New Jersey</option>
+                                  <option value="new mexico">New Mexico</option>
+                                  <option value="new york">New York</option>
+                                  <option value="north carolina">North Carolina</option>
+                                  <option value="north dakota">North Dakota</option>
+                                  <option value="ohio">Ohio</option>
+                                  <option value="oklahoma">Oklahoma</option>
+                                  <option value="oregon">Oregon</option>
+                                  <option value="pennsylvania">Pennsylvania</option>
+                                  <option value="rhode island">Rhode Island</option>
+                                  <option value="south carolina">South Carolina</option>
+                                  <option value="south dakota">South Dakota</option>
+                                  <option value="tennessee">Tennessee</option>
+                                  <option value="texas">Texas</option>
+                                  <option value="utah">Utah</option>
+                                  <option value="vermont">Vermont</option>
+                                  <option value="virginia">Virginia</option>
+                                  <option value="washington">Washington</option>
+                                  <option value="west virginia">West Virginia</option>
+                                  <option value="wisconsin">Wisconsin</option>
+                                  <option value="wyoming">Wyoming</option>
+                                  <option value="other">Other (Int'l)</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label for="zip{{this.id}}">Zip</label>
+                                <input type="number" class="form-control" name="zip" id="zip{{this.id}}" value="{{this.Contact.zip}}">
+                              </div>
+                            </div>
+                          </li>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        </ul>
+                      </form>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#pass{{this.id}}" aria-expanded="false" aria-controls="pass{{this.id}}">
+                          Manual Password Update
+                        </button>
+                        <form action="/delete_user/{{this.id}}?_method=DELETE" method="POST" class="text-right" style="display: inline; float: right;">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      <div class="collapse" id="pass{{this.id}}">
+                        <form action="/update_pass/{{this.id}}?_method=PUT" method="POST">
+                          <div class="card card-body">
+                            <div class="form-group">
+                              <label for="password{{this.id}}">Password for {{this.email}}</label>
+                              <input type="password" class="form-control" name="password" id="password{{this.id}}" placeholder="Enter new password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+
+
+              </div>
+            </div>
+
+            <!--NULL-->
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+
+</div>

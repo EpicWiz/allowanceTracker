@@ -1,0 +1,146 @@
+<div class="container-fluid text-center" style="padding:10px 0; margin:0 0 30px 0; width: 100%; background-color: #F5F5F5;">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <a href="/"><button class="btn btn-default btn-sm">Home</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="/login"><button class="btn btn-default btn-sm">Login</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="/signup"><button class="btn btn-default btn-sm">Sign Up</button></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>Sign Up</h3>
+        </div>
+        <div class="card-body">
+          <form action="/api/signup" method="POST" class="form-inline text-left panel-body">
+            <div class="card" style="width: 100%;">
+              <div class="card-header text-center">
+                Login Details
+              </div>
+              <div class="card-body">
+                <div class="form-group" style="width: 100%;">
+                  <label for="email" style="width: 20%;">Username:&nbsp;&nbsp;</label><br>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="email" autocomplete="on" style="width: 80%;">
+                </div>
+                <div class="form-group" style="width: 100%;">
+                  <label for="password" style="width: 20%;">Password:&nbsp;&nbsp;</label><br>
+                  <input type="password" class="form-control" name="password" id="password" placeholder="password" autocomplete="on" style="width: 80%;">
+                </div>
+                <div class="form-group" style="width: 100%;">
+                  <label for="conf-password" style="width: 20%;">Confirm Password:&nbsp;&nbsp;</label><br>
+                  <input type="password" class="form-control" name="conf-password" id="conf-password" placeholder="confirm password" autocomplete="on" style="width: 80%;">
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="width: 100%;">
+              <div class="card-header text-center">
+                User Details
+              </div>
+              <div class="card-body">
+                <div class="form-group" style="width: 100%;">
+                  <label for="first_name" style="width: 20%;">First Name:&nbsp;&nbsp;</label><br>
+                  <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" autocomplete="on" style="width: 80%;">
+                </div>
+                <div class="form-group" style="width: 100%;">
+                  <label for="last_name" style="width: 20%;">Last Name:&nbsp;&nbsp;</label><br>
+                  <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" autocomplete="on" style="width: 80%;">
+                </div>
+
+                <div class="form-group" style="width: 100%;">
+                  <label for="gender" style="width: 20%;">Gender:</label>
+                  <select class="form-control" id="gender" name="gender" style="width: 80%;">
+                    <option value="none">select one</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="width: 100%;">
+                  <label for="city" style="width: 20%;">City:&nbsp;&nbsp;</label><br>
+                  <input type="text" class="form-control" name="city" id="city" placeholder="city" autocomplete="on" style="width: 80%;">
+                </div>
+
+                <div class="form-group" style="width: 100%;">
+                  <label for="state" style="width: 20%;">State:</label>
+                  <select class="form-control" id="state" name="state" style="width: 80%;">
+                    <option value="none">select one</option>
+                    <option value="alabama">Alabama</option>
+                    <option value="alaska">Alaska</option>
+                    <option value="arizona">Arizona</option>
+                    <option value="arkansas">Arkansas</option>
+                    <option value="california">California</option>
+                    <option value="colorado">Colorado</option>
+                    <option value="connecticut">Connecticut</option>
+                    <option value="delaware">Delaware</option>
+                    <option value="florida">Florida</option>
+                    <option value="georgia">Georgia</option>
+                    <option value="hawaii">Hawaii</option>
+                    <option value="idaho">Idaho</option>
+                    <option value="illinois">Illinois</option>
+                    <option value="indiana">Indiana</option>
+                    <option value="iowa">Iowa</option>
+                    <option value="kansas">Kansas</option>
+                    <option value="kentucky">Kentucky</option>
+                    <option value="louisiana">Louisiana</option>
+                    <option value="maine">Maine</option>
+                    <option value="maryland">Maryland</option>
+                    <option value="massachusetts">Massachusetts</option>
+                    <option value="michigan">Michigan</option>
+                    <option value="minnesota">Minnesota</option>
+                    <option value="mississippi">Mississippi</option>
+                    <option value="missouri">Missouri</option>
+                    <option value="montana">Montana</option>
+                    <option value="nebraska">Nebraska</option>
+                    <option value="nevada">Nevada</option>
+                    <option value="new hampshire">New Hampshire</option>
+                    <option value="new jersey">New Jersey</option>
+                    <option value="new mexico">New Mexico</option>
+                    <option value="new york">New York</option>
+                    <option value="north carolina">North Carolina</option>
+                    <option value="north dakota">North Dakota</option>
+                    <option value="ohio">Ohio</option>
+                    <option value="oklahoma">Oklahoma</option>
+                    <option value="oregon">Oregon</option>
+                    <option value="pennsylvania">Pennsylvania</option>
+                    <option value="rhode island">Rhode Island</option>
+                    <option value="south carolina">South Carolina</option>
+                    <option value="south dakota">South Dakota</option>
+                    <option value="tennessee">Tennessee</option>
+                    <option value="texas">Texas</option>
+                    <option value="utah">Utah</option>
+                    <option value="vermont">Vermont</option>
+                    <option value="virginia">Virginia</option>
+                    <option value="washington">Washington</option>
+                    <option value="west virginia">West Virginia</option>
+                    <option value="wisconsin">Wisconsin</option>
+                    <option value="wyoming">Wyoming</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="width: 100%;">
+                  <label for="zip" style="width: 20%;">Zip Code:&nbsp;&nbsp;</label><br>
+                  <input type="number" class="form-control" name="zip" id="zip" placeholder="zip" autocomplete="on" style="width: 80%;">
+                </div>
+                <div class="form-group" style="width: 100%;">
+                  <label for="phone" style="width: 20%;">Phone:&nbsp;&nbsp;</label><br>
+                  <input type="number" class="form-control" name="phone" id="phone" placeholder="phone (optional)" autocomplete="on" style="width: 80%;">
+                </div>
+              </div>
+            </div>
+
+            <p class="card-text">None of your personal information will be shared with third-party organizations without your permission.</p>
+            <p style="width: 100%; text-align: center;"><button type="submit" class="btn btn-success">Submit</button></p>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
