@@ -80,30 +80,23 @@ function sixth() {
 
 function seventh() {
   Promise.all([
-  db.Rental.create({
+  db.Child.create({
     UserId: 1,
-    street_number: 1209,
-    street_name: 'Manhattan Avenue',
-    unit: '#312',
-    city: 'Manhattan Beach',
-    state: 'california',
-    zip: 90266
+    name: 'Timmy',
+    age: 0,
+    total: 0
+  }),
+  db.Child.create({
+    UserId: 1,
+    name: 'Sally',
+    age: 0,
+    total: 0
   }),
   db.Rental.create({
     UserId: 1,
-    street_number: 2308,
-    street_name: 'Pine Avenue',
-    city: 'Manhattan Beach',
-    state: 'california',
-    zip: 90266
-  }),
-  db.Rental.create({
-    UserId: 1,
-    street_number: 931,
-    street_name: 'Monterey Boulevard',
-    city: 'Hermosa Beach',
-    state: 'california',
-    zip: 90254
+    name: 'Bob',
+    age: 0,
+    total: 0
   })
 ]).then((data) => {
   //do nothing
