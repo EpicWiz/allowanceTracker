@@ -92,7 +92,7 @@ function seventh() {
     age: 0,
     total: 0
   }),
-  db.Rental.create({
+  db.Child.create({
     UserId: 1,
     name: 'Bob',
     age: 0,
