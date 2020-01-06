@@ -12,7 +12,7 @@ app.post('/add_child', isAuthenticated, function(request, response) {
     age: request.body.age,
     total: request.body.total
   }).then((data) => {
-    request.redirect('/home');
+    response.redirect('/home');
   }).catch((error) => {
     console.log(error);
   });

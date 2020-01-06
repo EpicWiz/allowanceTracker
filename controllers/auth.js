@@ -52,11 +52,17 @@ module.exports = function(app) {
         Promise.all([
         db.Contact.findOne({
           where: {UserId: request.user.id}
+        }),
+        db.User.findOne({
+          where: {id: request.user.id},
+          include: [{model: db.Child}]
         })
         ])
         .then((data) => {
+          console.log(JSON.stringify(data[1]));
           let hbsObject = {
-            userInfo: data[0]
+            userInfo: data[0],
+            user: data[1]
           };
           response.render('admin-welcome', hbsObject);
         }).catch((error) => {

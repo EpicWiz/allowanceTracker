@@ -34,7 +34,13 @@
       </div>
 
     </div>
-    <div class="col-sm-8" style="padding-top: 100px;">
+    <div class="col-sm-3">
+      {{#each user.Children}}
+      HERE
+        {{this.name}}
+      {{/each}}
+    </div>
+    <div class="col-sm-5" style="padding-top: 100px;">
       <!-- Configurations -->
       <div class="card" style="padding-top: 25px;">
         <h1 class="d-flex justify-content-center" style="font-family: 'Tomorrow', sans-serif;">$0</h1>
