@@ -4,7 +4,21 @@ const db = require('../models/index.js'); //see html-routes.js for more info
 
 module.exports = function(app) {
 
-  //Super Admin Manual User Password Update (doubles for Admin function)
+//[CONFIRMED] Add childName
+app.post('/add_child', isAuthenticated, function(request, response) {
+  db.Child.create({
+    UserId: request.user.id,
+    name: request.body.name,
+    age: request.body.age,
+    total: request.body.total
+  }).then((data) => {
+    request.redirect('/home');
+  }).catch((error) => {
+    console.log(error);
+  });
+});
+
+  //Admin Manual User Password Update
   app.put('/update_pass/:id', isAuthenticated, function(request, response) {
 
     db.User.update({
@@ -21,7 +35,7 @@ module.exports = function(app) {
 
   });
 
-  //Super Admin Manual User Details Update
+  //Admin Manual User Details Update
   app.put('/sa_update_user/:id', isAuthenticated, function(request, response) {
 
     Promise.all([
@@ -53,7 +67,7 @@ module.exports = function(app) {
     });
   });
 
-  //Navigate to Super Admin Manage Users page with relevant data request.
+  //Navigate to Admin Manage Users page with relevant data request.
   app.get('/manage_users', isAuthenticated, function(request, response) {
     Promise.all([db.User.findAll({
       where: {

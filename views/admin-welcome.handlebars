@@ -42,20 +42,20 @@
 
           <h5 class="card-title d-flex justify-content-center" style="font-family: 'Tomorrow', sans-serif;">Add Child ^</h5>
 
-          <form>
+          <form action="/add_child" method="POST">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="childName">Name</label>
                 <input type="text" class="form-control" id="childName" name="name">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-3">
                 <label for="age">Age</label>
-                <input type="numer" class="form-control" id="age" name="age">
+                <input type="number" class="form-control" id="age" name="age">
               </div>
-            </div>
-            <div class="form-group">
-              <label for="total">Starting Total</label>
-              <input type="text" class="form-control" id="total" name="total" placeholder="$0">
+              <div class="form-group col-md-3">
+                <label for="total">Starting Total</label>
+                <input type="number" class="form-control" id="total" name="total">
+              </div>
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
           </form>
